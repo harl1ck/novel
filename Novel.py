@@ -29,11 +29,11 @@ while (game != False):
                     f'Предметы: {lox_inven["Тёма"]}')
               choice = str(input(f"Сбежать за: {loxi[0]}? (Да/Нет) OR (Yes/No): ")).upper()
               match choice:
-                      case "ДА"|"YES":
+                      case "ДА" | "YES":
                           tema()
                           game = False
                           print("Спасибо за прохождение!")
-                      case "НЕТ"|"NO":
+                      case "НЕТ" | "NO":
                           print("- Ты офигело? Быдло.")
                       case _:
                           print("Выберите заново...")
@@ -46,11 +46,11 @@ while (game != False):
                     f'Предметы: {lox_inven["Наська"]}')
               choice = str(input(f"Сбежать за: {loxi[1]}? (Да/Нет) OR (Yes/No): ")).upper()
               match choice:
-                    case "ДА"|"YES":
+                    case "ДА" | "YES":
                         naska()
                         game = False
                         print("Спасибо за прохождение!")
-                    case "НЕТ"|"NO":
+                    case "НЕТ" | "NO":
                         print("- Я НЕ ХОЧУ УМИРАТЬ!!!!!!")
                     case _:
                         print("Выберите заново...")
@@ -63,11 +63,11 @@ while (game != False):
                     f'Предметы: {lox_inven["Катюха"]}')
               choice = str(input(f"Сбежать за: {loxi[2]}? (Да/Нет) OR (Yes/No): ")).upper()
               match choice:
-                    case "ДА"|"YES":
+                    case "ДА" | "YES":
                         katuha()
                         game = False
                         print("Спасибо за прохождение!")
-                    case "НЕТ"|"NO":
+                    case "НЕТ" | "NO":
                         print("- Упаси Боже.")
                     case _:
                         print("Выберите заново...")
