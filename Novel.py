@@ -1,5 +1,4 @@
 import json
-import Functions
 from Functions import tema, naska, katuha
 from Data_Saves import loxi, lox_inven
 game = True
