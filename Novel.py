@@ -1,5 +1,7 @@
+import json
+import Functions
 from Functions import tema, naska, katuha
-from Data import loxi, lox_inven
+from Data_Saves import loxi, lox_inven
 game = True
 
 print("Вы заспустили НОВЕЛЛУ \"Побег от банана с обосранной жэпой\"...\n"  # экранирование строки
@@ -18,7 +20,6 @@ while (game != False):
     except ValueError:
         print("Число напиши, дЭб1L!".upper())
         continue
-
     match persona:
           case 1:
               print("Тёма: мама-java под 2 метра.\n"
@@ -30,7 +31,15 @@ while (game != False):
               choice = str(input(f"Сбежать за: {loxi[0]}? (Да/Нет) OR (Yes/No): ")).upper()
               match choice:
                       case "ДА" | "YES":
-                          tema()
+                          data = {
+                              "loxi": {
+                                  "select_char": persona,
+                                  "choice": choice,
+                                  "ending": tema()
+                              }
+                          }
+                          with open('gg.json', 'w', encoding='utf-8') as file:
+                              json.dump(data, file, indent=2, ensure_ascii=False)
                           game = False
                           print("Спасибо за прохождение!")
                       case "НЕТ" | "NO":
@@ -47,7 +56,15 @@ while (game != False):
               choice = str(input(f"Сбежать за: {loxi[1]}? (Да/Нет) OR (Yes/No): ")).upper()
               match choice:
                     case "ДА" | "YES":
-                        naska()
+                        data = {
+                            "loxi": {
+                                "select_char": persona,
+                                "choice": choice,
+                                "ending": naska()
+                            }
+                        }
+                        with open('gg.json', 'w', encoding='utf-8') as file:
+                            json.dump(data, file, indent=2, ensure_ascii=False)
                         game = False
                         print("Спасибо за прохождение!")
                     case "НЕТ" | "NO":
@@ -64,7 +81,15 @@ while (game != False):
               choice = str(input(f"Сбежать за: {loxi[2]}? (Да/Нет) OR (Yes/No): ")).upper()
               match choice:
                     case "ДА" | "YES":
-                        katuha()
+                        data = {
+                            "loxi": {
+                                "select_char": persona,
+                                "choice": choice,
+                                "ending": katuha()
+                            }
+                        }
+                        with open('gg.json', 'w', encoding= 'utf-8') as file:
+                            json.dump(data, file, indent=2, ensure_ascii= False)
                         game = False
                         print("Спасибо за прохождение!")
                     case "НЕТ" | "NO":
