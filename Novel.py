@@ -1,5 +1,6 @@
 import json
 import os
+import csv
 from Functions import tema, naska, katuha
 from Data_Saves import loxi, lox_inven
 
@@ -32,14 +33,33 @@ def main():
                 choice = str(input(f"Сбежать за: {loxi[0]}? (Да/Нет) OR (Yes/No): ")).upper()
                 match choice:
                     case "ДА" | "YES":
-                        data = {
-                            "loxi": {
-                                "select_char": loxi[0],
-                                "ending": tema()
-                            }
-                        }
-                        with open('gg.json', 'w', encoding='utf-8') as file:
-                            json.dump(data, file, indent=2, ensure_ascii=False)
+                        while True:
+                            type_file = str(input("Выберите формат файла, в котором будут сохраняться данные? (J-json) OR (C-csv): ")).upper()
+                            match type_file:
+                                case "J" | "JSON":
+                                    data = {
+                                        "loxi": {
+                                            "select_char": loxi[0],
+                                            "ending": tema()
+                                        }
+                                    }
+                                    with open('gg.json', 'w', encoding='utf-8') as file:
+                                        json.dump(data, file, indent=2, ensure_ascii=False)
+                                    break
+                                case "C" | "CSV":
+                                    data_csv = [
+                                        {'character': loxi[2], 'ending': katuha()}
+                                    ]
+                                    with open('gg.csv', 'w', newline='') as file:
+                                        sss_ghoul = ['character', 'ending']
+                                        writer = csv.DictWriter(file, fieldnames=sss_ghoul, delimiter='|')
+                                        writer.writeheader()
+
+                                        for row in data_csv:
+                                            writer.writerow(row)
+                                    break
+                                case _:
+                                    print("Выберите формат сохранения!")
                         game = False
                         print("Спасибо за прохождение!")
                     case "НЕТ" | "NO":
@@ -57,14 +77,33 @@ def main():
                 choice = str(input(f"Сбежать за: {loxi[1]}? (Да/Нет) OR (Yes/No): ")).upper()
                 match choice:
                     case "ДА" | "YES":
-                        data = {
-                            "loxi": {
-                                "select_char": loxi[1],
-                                "ending": naska()
-                            }
-                        }
-                        with open('gg.json', 'w', encoding='utf-8') as file:
-                            json.dump(data, file, indent=2, ensure_ascii=False)
+                        while True:
+                            type_file = str(input("Выберите формат файла, в котором будут сохраняться данные? (J-json) OR (C-csv): ")).upper()
+                            match type_file:
+                                case "J" | "JSON":
+                                    data = {
+                                        "loxi": {
+                                            "select_char": loxi[1],
+                                            "ending": naska()
+                                        }
+                                    }
+                                    with open('gg.json', 'w', encoding='utf-8') as file:
+                                        json.dump(data, file, indent=2, ensure_ascii=False)
+                                    break
+                                case "C" | "CSV":
+                                    data_csv = [
+                                        {'character': loxi[2], 'ending': katuha()}
+                                    ]
+                                    with open('gg.csv', 'w', newline='') as file:
+                                        sss_ghoul = ['character', 'ending']
+                                        writer = csv.DictWriter(file, fieldnames=sss_ghoul, delimiter='|')
+                                        writer.writeheader()
+
+                                        for row in data_csv:
+                                            writer.writerow(row)
+                                    break
+                                case _:
+                                    print("Выберите формат сохранения!")
                         game = False
                         print("Спасибо за прохождение!")
                     case "НЕТ" | "NO":
@@ -81,14 +120,33 @@ def main():
                 choice = str(input(f"Сбежать за: {loxi[2]}? (Да/Нет) OR (Yes/No): ")).upper()
                 match choice:
                     case "ДА" | "YES":
-                        data = {
-                            "loxi": {
-                                "select_char": loxi[2],
-                                "ending": katuha()
-                            }
-                        }
-                        with open('gg.json', 'w', encoding='utf-8') as file:
-                            json.dump(data, file, indent=2, ensure_ascii=False)
+                        while True:
+                            type_file = str(input("Выберите формат файла, в котором будут сохраняться данные? (J-json) OR (C-csv): ")).upper()
+                            match type_file:
+                                case "J" | "JSON":
+                                    data = {
+                                        "loxi": {
+                                            "select_char": loxi[2],
+                                            "ending": katuha()
+                                        }
+                                    }
+                                    with open('gg.json', 'w', encoding='utf-8') as file:
+                                        json.dump(data, file, indent=2, ensure_ascii=False)
+                                    break
+                                case "C" | "CSV":
+                                    data_csv = [
+                                        {'character': loxi[2], 'ending': katuha()}
+                                    ]
+                                    with open('gg.csv', 'w', newline='') as file:
+                                        sss_ghoul = ['character', 'ending']
+                                        writer = csv.DictWriter(file, fieldnames=sss_ghoul, delimiter='|')
+                                        writer.writeheader()
+
+                                        for row in data_csv:
+                                            writer.writerow(row)
+                                    break
+                                case _:
+                                    print("Выберите формат сохранения!")
                         game = False
                         print("Спасибо за прохождение!")
                     case "НЕТ" | "NO":
