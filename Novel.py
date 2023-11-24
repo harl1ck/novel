@@ -156,15 +156,23 @@ def main():
 
 while True:
     if os.path.exists('gg.json'):
-        choose = input("Хотите ли вы удалить сохранение? (Да/Нет) OR (Yes/No): ").upper()
+        choose = str(input("Хотите ли вы удалить сохранение? (Да/Нет) OR (Yes/No): ")).upper()
         match choose:
             case "ДА" | "YES":
-                with open('gg.json', 'r') as file:
-                    data = json.load(file)
-                del data["loxi"]
-                with open('gg.json', 'w', encoding='utf-8') as file:
-                    json.dump(data, file, indent=2, ensure_ascii=False)
-                print("Сохранение было удалено")
+                os.remove('gg.json')
+                main()
+                break
+            case "НЕТ" | "NO":
+                main()
+                break
+            case _:
+                print("Выберите заново!")
+                continue
+    elif os.path.exists('gg.csv'):
+        choose = str(input("Хотите ли вы удалить сохранение? (Да/Нет) OR (Yes/No): ")).upper()
+        match choose:
+            case "ДА" | "YES":
+                os.remove('gg.csv')
                 main()
                 break
             case "НЕТ" | "NO":
