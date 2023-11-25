@@ -48,7 +48,7 @@ def main():
                                     break
                                 case "C" | "CSV":
                                     data_csv = [
-                                        {'character': loxi[2], 'ending': katuha()}
+                                        {'character': loxi[0], 'ending': tema()}
                                     ]
                                     with open('gg.csv', 'w', newline='') as file:
                                         sss_ghoul = ['character', 'ending']
@@ -92,7 +92,7 @@ def main():
                                     break
                                 case "C" | "CSV":
                                     data_csv = [
-                                        {'character': loxi[2], 'ending': katuha()}
+                                        {'character': loxi[1], 'ending': naska()}
                                     ]
                                     with open('gg.csv', 'w', newline='') as file:
                                         sss_ghoul = ['character', 'ending']
